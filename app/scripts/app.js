@@ -15,19 +15,33 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ngSocial'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $sceProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/main.html'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/videos', {
+        templateUrl: 'views/videos.html',
+        controller: 'VideosCtrl'
+      })
+      .when('/settings', {
+        templateUrl: 'views/settings.html',
+        controller: 'SettingsCtrl'
+      })
+      .when('/detail', {
+        templateUrl: 'views/detail.html',
+        controller: 'DetailCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
+      $sceProvider.enabled(false);
   });
+
