@@ -14,8 +14,9 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+    <link rel="stylesheet" href="bower_components/angular-social/angular-social.css" />
   </head>
-  <body ng-app="aechezu2App">
+  <body ng-app="aechezu2App" ng-controller="MainCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -24,17 +25,28 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
+          <li ng-class="{active: getPath() == '/'}"><a ng-href="#">Home</a></li>
+          <li ng-class="{active: getPath() == '/videos' || getPath() == '/detail'}"><a ng-href="#/videos">Videos</a></li>
+          <li ng-class="{active: getPath() == '/about'}"><a ng-href="#/about">About</a></li>
+          <li ng-class="{active: getPath() == '/settings'}"><a ng-href="#/settings"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
         </ul>
-        <h3 class="text-muted">aechezu2</h3>
+        <h3 class="text-muted"><span class="glyphicon glyphicon-eye-close"></span><span class="glyphicon glyphicon-eye-close"></span> Äche Zu 2.0</h3>
       </div>
 
       <div ng-view=""></div>
 
       <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p>Share us on Facebook:
+        <ul ng-social-buttons
+         data-url="'http://facebook.com/aechezu'"
+         data-title="'Aeche Zu'"
+         data-description="'Aeche Zu'"
+         data-image="'/images/facebook.png'">
+
+          <li class="ng-social-facebook">Facebook</li>
+
+        </ul>
+      </p>
       </div>
     </div>
 
@@ -69,6 +81,7 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-social/angular-social.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -76,6 +89,12 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/videos.js"></script>
+        <script src="scripts/controllers/settings.js"></script>
+        <script src="scripts/controllers/detail.js"></script>
+        <script src="scripts/services/facebookservice.js"></script>
+        <script src="scripts/services/watchservice.js"></script>
+        <script src="scripts/filters/paginationfilter.js"></script>
         <!-- endbuild -->
 </body>
 </html>

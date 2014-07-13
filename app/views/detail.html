@@ -1,0 +1,11 @@
+<div ng-show="video">
+<p>{{info.title}}</p>
+<div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="{{video.url}}" allowfullscreen=""></iframe>
+</div>
+<p></p>
+</div>
+
+<div ng-hide="video">
+  <h3 align="center"><span class="glyphicon glyphicon-remove"></span> No video found!</h3>
+</div>

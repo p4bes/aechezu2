@@ -8,10 +8,11 @@
  * Controller of the aechezu2App
  */
 angular.module('aechezu2App')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, $location, Facebookservice) {
+
+    Facebookservice.init();
+
+    $scope.getPath = function () {
+      return $location.path();
+    };
   });
