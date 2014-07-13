@@ -52,7 +52,7 @@ angular.module('aechezu2App')
         var currentElem = allThisShitUnfiltered[i];
         var $html = $('<html>').html(currentElem.content);
         var newVideo = {};
-        newVideo.title = currentElem.title;
+        newVideo.title = unescape(currentElem.title);
         newVideo.pubDate = currentElem.published;
         newVideo.metadata = currentElem.content;
         var el = document.createElement( 'div' );

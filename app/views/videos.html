@@ -28,8 +28,12 @@
   </div><!-- /.container-fluid -->
 </nav>
 
+<div ng-hide="videos">
+  <h4 align="center"><span class="glyphicon glyphicon-refresh"></span> Loading the aswesome!</h4>
+</div>
+
 <ul class="media-list">
-  <li class="media" ng-repeat="(index, video) in videos | filter:query">
+  <li class="media" ng-repeat="(index, video) in videos | filter:query | paginationFilter:startIndex:endIndex">
     <a class="pull-left" href="javascript:" ng-click="watch(video)">
       <img class="media-object" src="{{video.picture}}" onerror="this.onerror=null;this.src='images/yeoman.png'" alt="Bild">
     </a>
@@ -38,4 +42,9 @@
       {{video.title}}
     </div>
   </li>
+</ul>
+
+<ul class="pager" ng-show="(videos | filter:query).length > 10">
+  <li class="previous" ng-show="startIndex != 0" ng-click="newer()"><a href="javascript:">&larr; Newer</a></li>
+  <li class="next"  ng-show="endIndex < videos.length-1" ng-click="older()"><a href="javascript:">Older &rarr;</a></li>
 </ul>
