@@ -26,11 +26,11 @@
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <li ng-class="{active: getPath() == '/'}"><a ng-href="#">Home</a></li>
-          <li ng-class="{active: getPath() == '/videos'}"><a ng-href="#/videos">Videos</a></li>
+          <li ng-class="{active: getPath() == '/videos' || getPath() == '/detail'}"><a ng-href="#/videos">Videos</a></li>
           <li ng-class="{active: getPath() == '/about'}"><a ng-href="#/about">About</a></li>
           <li ng-class="{active: getPath() == '/settings'}"><a ng-href="#/settings"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
         </ul>
-        <h3 class="text-muted">Äche Zu 2.0</h3>
+        <h3 class="text-muted"><span class="glyphicon glyphicon-eye-close"></span><span class="glyphicon glyphicon-eye-close"></span> Äche Zu 2.0</h3>
       </div>
 
       <div ng-view=""></div>
